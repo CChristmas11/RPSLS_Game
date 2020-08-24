@@ -73,11 +73,30 @@ class Game {
     constructor() {
         this.playerOne = new Player("Player 1");
         this.playerTwo = new Player("Player 2");
-        this.dice = [];
-        this.dice.push(new Die(6);
-
-        
+        this.dice = new Die (6);
+  
     }
+
+runGame() { // "main" method
+
+
+}
+
+displayRules(){
+    console.log ("Welcome to the Rock Paper Scissors Lizard Spock Game!"); 
+    console.log ("Two players will roll a die to determine which item they are."); 
+    console.log ("Points are scored when the player with the item that pulverizes the other player's item as indicated below:");
+    console.log (" Rock crushes Scissors") + "\n";
+                ("Scissors cuts Paper") + "\n";
+                ("Paper covers Rock") + "\n";
+                ("Rock crushes Lizard") + "\n";
+                ("Lizard poisons Spock") + "\n";
+                ("Spock smashes Scissors") + "\n";
+                ("Scissors decapitates Lizard") + "\n";
+                ("Lizard eats Paper") + "\n";
+                ("Paper disproves Spock") + "\n";
+                ("Spock vaporizes Rock");  
+}
 }
 
 class Die {
@@ -85,3 +104,10 @@ class Die {
         this.numberOfSides = numberOfSides;   
     }
 }
+
+let game = new Game();
+
+
+console.log('game', game);
+
+game.runGame();
