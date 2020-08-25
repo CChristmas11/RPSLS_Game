@@ -65,27 +65,49 @@ https://www.youtube.com/watch?v=cSLeBKT7-sM */
 class Player {
     constructor(name) {
         this.score = 0;
-        this.name = name;
+        this.name = name;   
+        this.chosenCard = null;
+        
+        this.play = [];
+
+        this.play.push(new Card("Rock"));
+        this.play.push(new Card("Paper"));
+        this.play.push(new Card("Scissors"));
+        this.play.push(new Card("Lizard"));
+        this.play.push(new Card("Spock"));
+    }
+
+
+
+    generateRandomNumber() {
+        let randomNumber = Math.floor(Math.random)* this.play.length;
+        return randomNumber; 
+        
+    }
+
+    chooseCard() {
+        let revealedCard = generateRandomNumber();
+        this.chosenCard = this.play[revealedCard];
+        console.log ("The card is" + this.chosenCard.gesture);
+
     }
 }
+
 
 class Game {
     constructor() {
         this.playerOne = new Player("Player 1");
         this.playerTwo = new Player("Player 2");
-        this.dice = new Die (6);
-  
+        
+        
+
     }
 
-runGame() { // "main" method
-
-
-}
 
 displayRules(){
-    console.log ("Welcome to the Rock Paper Scissors Lizard Spock Game!"); 
-    console.log ("Two players will roll a die to determine which item they are."); 
-    console.log ("Points are scored when the player with the item that pulverizes the other player's item as indicated below:");
+    console.log ("Welcome to the ROCK PAPER SCISSORS LIZARD SPOCK Game!"); 
+    console.log ("Two players will flip a card to determine which item they are."); 
+    console.log ("One point is scored by the player who has the card showing an item that trumps the other player's item as indicated below:");
     console.log (" Rock crushes Scissors") + "\n";
                 ("Scissors cuts Paper") + "\n";
                 ("Paper covers Rock") + "\n";
@@ -96,18 +118,80 @@ displayRules(){
                 ("Lizard eats Paper") + "\n";
                 ("Paper disproves Spock") + "\n";
                 ("Spock vaporizes Rock");  
-}
+    console.log ("The first player to 3 points wins the game.")
 }
 
-class Die {
-    constructor(numberOfSides) {
-        this.numberOfSides = numberOfSides;   
+    runGame() {
+
+        //Give instructions to call functions/methods
+        //displayrules
+        //Ask number of players
+        
+
+
     }
+
+    playerRoundChoice(){
+    this.playerOne.chooseCard();
+    console.log (this.playerOne.chosenCard.gesture);
+
+    this.playerTwo.chooseCard();
+    console.log (this.playerOne.chosenCard.gesture);
+
+    }
+
+    compareGestures(){
+
+
+
+
+    }
+        ///??? Need if/then = 1 point???  Compare Cards 
+      ///How do I make this determine when to stop at best of 3? 
+      ///How do I connect the random number to the card to reveal?
+
+      calculateScore() {
+
+        let totalScore = 0; 
+
+        for (let i = 0; i < 5; i++) {
+            this.chooseCard(card); 
+        }
+
+    } 
 }
+
+class Card {
+    constructor(cardValue) {
+        this.gesture = cardValue;   
+    }
+
+    //?????? can I call the length of the array established in the Game Class here?
+   
+}
+
+// "main" method that executes all the game object by using other methods; call it at the end
+runGame() {
+    this.displayRules();
+} 
+
+
+chooseGame(); {
+    alert("How many playrers? 1 or 2")
+    return 
+
+}
+///????? why is this grayed out? 
+compareCards(); {
+
+}
+
+
+
+
+
 
 let game = new Game();
-
-
 console.log('game', game);
 
 game.runGame();
